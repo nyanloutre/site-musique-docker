@@ -22,7 +22,7 @@ docker run -it --rm -p 443:443 -p 80:80 --name certbot \
 ```
 5. Créer le container nginx basé sur le Dockerfile
 ```
-docker create --name=musique-nginx --net=site-musique -v musique-ssl:/etc/nginx/ssl -d -p 80:80 -p 443:443 musique-nginx
+docker create --name=musique-nginx --net=site-musique -v musique-ssl:/etc/nginx/ssl -d -p 80:80 -p 443:443 nyanloutre/site-musique-docker
 ```
 
 # Installer un nouveau certificat en cas d'expiration
