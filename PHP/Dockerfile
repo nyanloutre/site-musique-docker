@@ -4,4 +4,5 @@ FROM php:fpm-alpine
 RUN apk --update add freetype-dev && \
     docker-php-ext-configure gd \
         --with-freetype-dir=/usr/include/ && \
-    docker-php-ext-install -j$(getconf _NPROCESSORS_ONLN) gd mysqli pdo pdo_mysql
+    docker-php-ext-install -j$(getconf _NPROCESSORS_ONLN) gd mysqli pdo pdo_mysql && \
+    apk del --no-cache freetype-dev
