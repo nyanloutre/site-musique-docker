@@ -24,6 +24,7 @@ docker create --name=musique-nginx --net=site-musique -v musique-ssl:/etc/nginx/
 ```
 docker run --net=site-musique --name=musique-php --net-alias=php --volumes-from musique-nginx -d php:fpm-alpine
 ```
+7. Démarer le container nginx
 
 
 # Installer un nouveau certificat en cas d'expiration
