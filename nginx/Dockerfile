@@ -27,6 +27,7 @@ RUN wget https://builds.piwik.org/piwik.zip && \
     mv /piwik/* /usr/share/nginx/html/analytics && \
     rmdir /piwik && \
     chown -R nginx:nginx /usr/share/nginx/html/analytics && \
-    chmod 777 /usr/share/nginx/html/analytics/tmp
+    chmod 777 /usr/share/nginx/html/analytics/tmp && \
+    chmod 777 /usr/share/nginx/html/analytics/config
 
 CMD /start.sh
