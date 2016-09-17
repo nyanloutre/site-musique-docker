@@ -2,7 +2,7 @@ FROM nginx:alpine
 MAINTAINER Paul TREHIOU <paul.trehiou@gmail.com>
 
 # Startup script
-RUN apk add openssl
+RUN apk update && apk add openssl
 RUN mkdir /etc/nginx/ssl
 COPY start.sh /start.sh
 
