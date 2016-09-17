@@ -21,5 +21,5 @@ docker run -it --rm -p 443:443 -p 80:80 --name certbot \
 ```
 5. Créer le container nginx basé sur le Dockerfile
 ```
-    docker run -v musique-ssl/live/home.nyanlout.re:/etc/nginx/ssl -d  -p 80:80 -p 443:443 site-musique
+    docker run --net=site-musique -v musique-ssl:/etc/nginx/ssl -d  -p 80:80 -p 443:443 musique-nginx
 ```
