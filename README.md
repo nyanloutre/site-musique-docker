@@ -22,9 +22,20 @@ docker create --name=musique-nginx --net=site-musique -v musique-ssl:/etc/nginx/
 ```
 5. Créer un container php que l'on connecte au réseau
 ```
-docker run --net=site-musique --name=musique-php --net-alias=php --volumes-from musique-nginx -d php:fpm-alpine
+docker run --net=site-musique --name=musique-php --net-alias=php --volumes-from musique-nginx -d nyanloutre/site-musique-php
+```
+7. Créer un volume pour la base de donnée
+```
+docker volume create --name=musique-sql
+```
+6. Démarer un container mariaDB
+```
+docker run --name musique-mariadb --net=site-musique --net-alias=sql -v musique-sql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mariadb
 ```
 7. Démarer le container nginx
+```
+docker start musique-nginx
+```
 
 
 # Installer un nouveau certificat en cas d'expiration
@@ -33,4 +44,9 @@ docker run --net=site-musique --name=musique-php --net-alias=php --volumes-from 
 docker run -it --rm -p 443:443 -p 80:80 --name certbot \
     -v musique-ssl:/etc/letsencrypt \
     quay.io/letsencrypt/letsencrypt:latest renew -n
+```
+
+# Dumper la BDD
+```
+docker exec musique-mariadb sh -c 'exec mysqldump --all-databases -uroot -p"$MYSQL_ROOT_PASSWORD"' > /some/path/on/your/host/all-databases.sql
 ```
