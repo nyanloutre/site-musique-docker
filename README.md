@@ -17,7 +17,7 @@ Images docker pour déployer le site de la musique https://musique-meyenheim.fr/
     docker run -it --rm -p 443:443 -p 80:80 --name certbot \
         -v musique-ssl:/etc/letsencrypt \
         quay.io/letsencrypt/letsencrypt:latest certonly \
-        -n --standalone -m paul.trehiou@gmail.com -d musique-meyenheim.fr --agree-tos
+       -n --standalone -m paul.trehiou@gmail.com -d musique-meyenheim.fr --agree-tos
         
 5. Créer le container nginx basé sur le Dockerfile
 
