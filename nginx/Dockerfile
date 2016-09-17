@@ -25,6 +25,7 @@ RUN wget https://builds.piwik.org/piwik.zip && \
     rm piwik.zip && \
     mkdir /usr/share/nginx/html/analytics && \
     mv /piwik/* /usr/share/nginx/html/analytics && \
-    rmdir /piwik
+    rmdir /piwik && \
+    chown -R nginx:nginx /usr/share/nginx/html/analytics
 
 CMD /start.sh
