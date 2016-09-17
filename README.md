@@ -30,8 +30,9 @@ docker volume create --name=musique-sql
 ```
 6. Démarer un container mariaDB
 ```
-docker run --name musique-mariadb --net=site-musique --net-alias=sql -v musique-sql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mariadb
+docker run --name musique-mariadb --net=site-musique --net-alias=sql -v musique-sql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -v /home/core/site-musique-piwiq.sql:/docker-entrypoint-initdb.d/backup.sql -d mariadb
 ```
+La partie qui mappe le fichier sql est uniquement pour le premier lancement afin d'importer une sauvegarde. La base de donnée se trouve ensuite sur un Volume qui est donc persistant
 7. Démarer le container nginx
 ```
 docker start musique-nginx
