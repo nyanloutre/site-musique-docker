@@ -20,7 +20,7 @@ RUN wget https://github.com/nyanloutre/site-musique/archive/master.zip && \
     rmdir site-musique-master
     
 # Installing Piwik
-RUN wget https://web.archive.org/web/20160915203525/https://builds.piwik.org/piwik.zip && \
+RUN wget https://builds.piwik.org/piwik.zip && \
     unzip piwik.zip && \
     mkdir /usr/share/nginx/html/analytics && \
     mv /piwik/* /usr/share/nginx/html/analytics && \
