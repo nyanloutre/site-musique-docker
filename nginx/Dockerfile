@@ -1,4 +1,4 @@
-FROM nginx:alpine
+FROM nginx:1.11.4-alpine
 MAINTAINER Paul TREHIOU <paul.trehiou@gmail.com>
 
 # Startup script
