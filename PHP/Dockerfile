@@ -1,4 +1,4 @@
-FROM php:fpm-alpine 
+FROM php:7.0.11-fpm-alpine
 
 # Installations extentions necessaires
 RUN apk --update add freetype-dev freetype && \
