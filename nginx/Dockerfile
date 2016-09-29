@@ -1,11 +1,6 @@
 FROM nginx:1.11.4-alpine
 MAINTAINER Paul TREHIOU <paul.trehiou@gmail.com>
 
-# Startup script
-RUN apk --update add openssl
-RUN mkdir /etc/nginx/ssl
-COPY start.sh /start.sh
-
 # Configure Nginx
 COPY nginx-site.conf /etc/nginx/conf.d/default.conf
 
@@ -29,5 +24,3 @@ RUN wget https://builds.piwik.org/piwik.zip && \
     chmod 777 /usr/share/nginx/html/analytics/tmp && \
     chmod 777 /usr/share/nginx/html/analytics/config && \
     chmod 777 /usr/share/nginx/html/analytics/misc/user
-
-CMD /start.sh
