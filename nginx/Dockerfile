@@ -5,7 +5,7 @@ MAINTAINER Paul TREHIOU <paul.trehiou@gmail.com>
 COPY nginx-site.conf /etc/nginx/conf.d/default.conf
 
 # Get the website content
-RUN apk --update add ca-certificates
+RUN apk --update add ca-certificates openssl
 RUN rm /usr/share/nginx/html/*
 RUN wget https://github.com/nyanloutre/site-musique/archive/master.zip && \
     unzip master.zip -d /usr/share/nginx/html && \
