@@ -38,7 +38,16 @@ La partie qui mappe le fichier sql est uniquement pour le premier lancement afin
 docker start musique-nginx
 ```
 
-
+# Exemple
+```
+[paul@kimsufi ~]$ docker create --name=musique-nginx --net=site-musique -v letsencrypt-cert:/etc/nginx/ssl -v /usr/share/nginx/html quay.io/nyanloutre/site-musique-docker
+8f5e7e3a9f754a3cca74d9fc6eadbf5c62a6b9218926715f2f0acd0ba1849c2c
+[paul@kimsufi ~]$ docker run --net=site-musique --name=musique-php --net-alias=php --volumes-from musique-nginx -d quay.io/nyanloutre/site-musique-php
+1f02b976c017934489b190109af8e33dd17afe3e734ae859acbd60d1c0d56a36
+[paul@kimsufi ~]$ docker run --name musique-mariadb --net=site-musique --net-alias=sql -v musique-sql:/var/lib/mysql -d mariadb
+fc3099a345becb230decf71e36f41d2adbcd93a259aeee75cd9756d5b3855727
+[paul@kimsufi ~]$ docker start musique-nginx
+```
 # Installer un nouveau certificat en cas d'expiration
 
 ```
