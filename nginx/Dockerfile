@@ -4,14 +4,13 @@ MAINTAINER Paul TREHIOU <paul.trehiou@gmail.com>
 # Configure Nginx
 COPY nginx-site.conf /etc/nginx/conf.d/default.conf
 
-# Get the website content
 RUN apk --update add ca-certificates openssl
 RUN rm /usr/share/nginx/html/*
     
 # Installing Piwik
-RUN wget https://builds.piwik.org/piwik.zip && \
-    unzip piwik.zip && \
-    rm piwik.zip && \
+RUN wget https://builds.piwik.org/piwik-2.16.5.zip && \
+    unzip piwik-2.16.5.zip && \
+    rm piwik-2.16.5.zip && \
     mkdir /usr/share/nginx/html/analytics && \
     mv /piwik/* /usr/share/nginx/html/analytics && \
     rmdir /piwik && \
