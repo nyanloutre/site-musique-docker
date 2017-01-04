@@ -7,7 +7,7 @@ rm -rf /usr/share/nginx/html/* && \
     
 # Installing Piwik
 mkdir -p /usr/share/nginx/html/analytics && \
-curl -sL --retry 3 https://builds.piwik.org/piwik-2.17.0.tar.gz \
+curl -sL --retry 3 https://builds.piwik.org/piwik-3.0.0.tar.gz \
   | gunzip \
   | tar x -C /usr/share/nginx/html/analytics --strip-components=1 &&\
 chmod 777 /usr/share/nginx/html/analytics/tmp && \
