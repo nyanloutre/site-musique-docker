@@ -12,7 +12,8 @@ curl -sL --retry 3 https://builds.piwik.org/piwik-3.0.0.tar.gz \
   | tar x -C /usr/share/nginx/html/analytics --strip-components=1 &&\
 chmod 777 /usr/share/nginx/html/analytics/tmp && \
 chmod 777 /usr/share/nginx/html/analytics/config && \
-chmod 777 /usr/share/nginx/html/analytics/misc/user
+chmod 777 /usr/share/nginx/html/analytics/misc/user && \
+mv /usr/share/nginx/html/analytics/config /usr/share/nginx/html/analytics/config.old
 
 # Configure Nginx
 COPY nginx-site.conf /etc/nginx/conf.d/default.conf
